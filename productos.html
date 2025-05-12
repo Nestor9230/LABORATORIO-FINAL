@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Productos - ProdArt</title>
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="assets/css/custom.css" />
+</head>
+<body>
+
+  <!-- 🔹 Barra superior de contacto -->
+  <div class="bg-dark text-white py-1 small">
+    <div class="container d-flex justify-content-between">
+      <div>
+        <i class="fas fa-envelope me-2"></i> info@prodart.com
+        <span class="mx-3">|</span>
+        <i class="fas fa-phone me-2"></i> 057-320-202-02-02
+      </div>
+      <div>
+        <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🌐 Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand text-success fw-bold" href="index.html">ProdArt</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarMain">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="acercade.html">A cerca de</a></li>
+          <li class="nav-item"><a class="nav-link" href="compras.html">Compras</a></li>
+          <li class="nav-item"><a class="nav-link active" href="productos.html">Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="carrito.html">
+              🛒 Ver Carrito (<span id="cantidad-carrito">0</span>)
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 🛍️ Catálogo de productos -->
+  <main class="container my-5">
+    <h1 class="text-center text-success mb-4">Nuestros Productos</h1>
+    <div class="row g-4">
+
+      <!-- Producto 1 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <img src="assets/img/sombrero.jpg" class="card-img-top" alt="Sombrero artesanal">
+          <div class="card-body">
+            <h5 class="card-title">Sombrero Vueltiao</h5>
+            <p class="card-text">Sombrero típico colombiano tejido a mano.</p>
+            <p class="text-success fw-bold">$60.000 COP</p>
+            <button class="btn btn-success w-100" onclick="agregarAlCarrito('Sombrero Vueltiao', 60000)">
+              <i class="fas fa-cart-plus me-2"></i>Agregar al carrito
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto 2 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <img src="assets/img/hamaca.jpg" class="card-img-top" alt="Hamaca artesanal">
+          <div class="card-body">
+            <h5 class="card-title">Hamaca Caribeña</h5>
+            <p class="card-text">Hamaca tejida en algodón con colores vivos.</p>
+            <p class="text-success fw-bold">$120.000 COP</p>
+            <button class="btn btn-success w-100" onclick="agregarAlCarrito('Hamaca Caribeña', 120000)">
+              <i class="fas fa-cart-plus me-2"></i>Agregar al carrito
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto 3 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <img src="assets/img/accesorios.jpg" class="card-img-top" alt="Accesorios artesanales">
+          <div class="card-body">
+            <h5 class="card-title">Collar Étnico</h5>
+            <p class="card-text">Accesorio hecho con semillas naturales y fibras.</p>
+            <p class="text-success fw-bold">$35.000 COP</p>
+            <button class="btn btn-success w-100" onclick="agregarAlCarrito('Collar Étnico', 35000)">
+              <i class="fas fa-cart-plus me-2"></i>Agregar al carrito
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- 📍 Footer -->
+  <footer class="bg-dark text-white pt-5 pb-4 mt-5">
+    <div class="container text-center">
+      <p>&copy; 2024 ProdArt. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/custom.js"></script>
+</body>
+</html>

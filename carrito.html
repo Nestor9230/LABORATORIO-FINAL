@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito de Compras - ProdArt</title>
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+<body>
+
+  <!-- 🌟 Navbar simple -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-4">
+    <div class="container">
+      <a class="navbar-brand text-success fw-bold" href="index.html">ProdArt</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarMain">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 🛒 Carrito de compras -->
+  <main class="container my-5">
+    <h1 class="text-center text-success mb-4">Tu Carrito</h1>
+
+    <div id="lista-productos" class="mb-4">
+      <!-- Aquí se cargarán los productos con JavaScript -->
+    </div>
+
+    <div id="contenedor-total" class="d-flex justify-content-between align-items-center mt-4">
+        <p class="h5"><strong>Total:</strong> <span id="total-carrito">$0</span></p>
+        <button class="btn btn-danger" onclick="vaciarCarrito()">Vaciar Carrito</button>
+      </div>
+     </main>
+
+  <!-- 📍 Footer -->
+  <footer class="bg-dark text-white pt-4 pb-3 mt-5">
+    <div class="container text-center">
+      <p>&copy; 2024 ProdArt. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/custom.js"></script>
+
+  <script>
+    // Mostrar los productos del carrito con botón de eliminar
+    function mostrarCarrito() {
+      const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      const contenedor = document.getElementById("lista-productos");
+      const totalTexto = document.getElementById("total-carrito");
+      const contenedorTotal = document.getElementById("contenedor-total");
+  
+      contenedor.innerHTML = "";
+  
+      if (carrito.length === 0) {
+        contenedor.innerHTML = "<p class='text-center text-muted'>Tu carrito está vacío 🛒</p>";
+        contenedorTotal.style.display = "none";
+        return;
+      }
+  
+      let suma = 0;
+      carrito.forEach((producto, index) => {
+        contenedor.innerHTML += `
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span>${producto.nombre} - $${producto.precio}</span>
+            <button class="btn btn-sm btn-outline-danger" onclick="eliminarProducto(${index})">🗑</button>
+          </div>`;
+        suma += producto.precio;
+      });
+  
+      totalTexto.textContent = `$${suma}`;
+      contenedorTotal.style.display = "flex";
+    }
+  
+    // Eliminar producto individual
+    function eliminarProducto(index) {
+      let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      carrito.splice(index, 1); // Elimina el producto en la posición indicada
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      mostrarCarrito(); // Refresca la lista
+    }
+  
+    // Vaciar todo el carrito
+    function vaciarCarrito() {
+      localStorage.removeItem("carrito");
+      mostrarCarrito();
+    }
+  
+    // Al cargar la página
+    document.addEventListener("DOMContentLoaded", mostrarCarrito);
+  </script>
+</body>
+</html>
